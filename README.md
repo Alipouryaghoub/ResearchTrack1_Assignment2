@@ -104,6 +104,6 @@ if __name__ == '__main__':
     custom_handler.process_user_input_and_manage_goals()
 
 
-python```
+```
 
 
