@@ -1,8 +1,10 @@
 Research Track1_Assignment2
 =================================
 Student name: Mohammad Ali Pouryaghoub Shahkhali
+
 Student number: 6063201
-This is the second assignment for the Research Track 1 course. The assignment requires the creation of a new package containing three nodes to control robot movement in a specific environment and to gather relevant data. The nodes are as follows:
+
+
 
 - A node that implements an action client, allowing the user to set a target(x,y) or to cancel it.
 Try to use the feedback/status of the action server to know when the target has been reached.
