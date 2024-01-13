@@ -106,5 +106,78 @@ if __name__ == '__main__':
 
 ```
 
-# kahxzkh
+# Simplified Pseudocode for Custom Goal Handling Node A
+
+```bash
+# Initialize ROS node and required libraries
+Initialize ROS node 'custom_goal_handler_node'
+Import required libraries
+
+# Define main class
+class CustomGoalHandler:
+    # Initialize class variables
+    Initialize velocity_publisher, action_client, goal_cancelled
+
+    # Constructor
+    def __init__(self):
+        # Initialize publisher and action client
+        self.velocity_publisher = create_publisher("/pos_vel", Vel, queue_size=1)
+        self.action_client = create_action_client('/reaching_goal', PlanningAction)
+        Wait for action server
+        Initialize goal_cancelled
+
+    # Method to process user input and manage goals
+    def process_user_input_and_manage_goals(self):
+        Loop while ROS is running:
+            # Subscribe to /odom topic and publish position and velocity
+            Subscribe to "/odom" and call self.publish_position_velocity
+            # Get user command
+            user_choice = input("Press 'y' to set a new goal or 'c' to cancel the current goal: ")
+            # Get current target position
+            current_target_pos_x = get_param('/des_pos_x')
+            current_target_pos_y = get_param('/des_pos_y')
+
+            # Create a new goal with the current target position
+            current_goal = create_PlanningGoal()
+            current_goal.target_pose.pose.position.x = current_target_pos_x
+            current_goal.target_pose.pose.position.y = current_target_pos_y
+            Log current goal information
+
+            # Handle user input
+            if user_choice == 'y':
+                # Get new goal coordinates from user
+                new_goal_x, new_goal_y = get_user_input_for_new_goal()
+
+                # Update target position parameters and the goal
+                Update parameters '/des_pos_x' and '/des_pos_y'
+                Update current_goal with new coordinates
+
+                # Send the new goal to the action server
+                Send current_goal to action server
+                Set goal_cancelled to False
+
+            elif user_choice == 'c':
+                # Cancel the current goal if there is one
+                Check if goal is not already cancelled
+                Cancel current goal
+                Log cancellation message
+                Set goal_cancelled to True
+
+            else:
+                Log warning for invalid command
+
+            Log last received goal information
+
+    # Method to publish current position and velocity
+    def publish_position_velocity(self, odom_message):
+        Extract current position and velocity from Odometry message
+        Create Vel message with the current position and velocity
+        Publish the Vel message
+
+# Main program
+if __name__ == '__main__':
+    Initialize ROS node 'custom_goal_handler_node'
+    Create instance of CustomGoalHandler
+    Call process_user_input_and_manage_goals method
+```
 
