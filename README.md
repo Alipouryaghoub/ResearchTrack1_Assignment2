@@ -181,3 +181,25 @@ if __name__ == '__main__':
     Call process_user_input_and_manage_goals method
 ```
 
+# ROS Last Target Service Node B for Storing and Retrieving Desired Positions
+
+#[Initialization]: The class CustomLastTargetService initializes with default values for the last desired x and y positions.
+
+Node Initialization: The ROS node is initialized with the name 'custom_last_target_service'. A log message indicates the successful initialization of the node.
+
+Callback Function: The result_callback function serves as the callback for the 'input' service. It creates a response message of type InputResponse and sets its x and y inputs to the last desired positions obtained from the ROS parameter server.
+
+Service Advertisement: The run_service_node method advertises the 'input' service with the name 'input' using the custom service type 'Input'.
+
+Service Handling: The node enters a spin loop, keeping it active to handle incoming service requests. When a request is received, the callback function is invoked to generate a response with the last desired x and y positions.
+
+Node Execution: In the main block, an instance of the CustomLastTargetService class is created, and the run_service_node method is called, initiating the execution of Node B.
+
+In summary, Node B provides a service that responds to requests by supplying the last desired x and y positions, allowing other nodes in the ROS system to retrieve this information as needed.
+
+
+
+
+
+
+
