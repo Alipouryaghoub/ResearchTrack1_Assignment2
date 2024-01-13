@@ -183,8 +183,7 @@ if __name__ == '__main__':
 
 # ROS Last Target Service Node B for Storing and Retrieving Desired Positions
 
-# Initialization:
-The class CustomLastTargetService initializes with default values for the last desired x and y positions.
+**Initialization:**The class CustomLastTargetService initializes with default values for the last desired x and y positions.
 
 # Node Initialization:
 The ROS node is initialized with the name 'custom_last_target_service'. A log message indicates the successful initialization of the node.
