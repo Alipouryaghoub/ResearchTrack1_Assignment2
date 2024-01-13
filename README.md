@@ -8,7 +8,7 @@ This Python script serves as a custom goal handler for a ROS (Robot Operating Sy
 
 To run the code, ensure the necessary ROS installation and the [RT1_assignment_2](https://github.com/LemmaMoto/RT1_assignment_2.git) repository are available. Also, make sure to grant execution permissions to the Python files within the 'scripts' folder. Finally, execute the script using the following command:
 
-```pythin
+```python
 #! /usr/bin/env python3
 
 # Importing required libraries
