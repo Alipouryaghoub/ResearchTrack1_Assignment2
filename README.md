@@ -1,9 +1,7 @@
-Research Track I Second Assignment
+Research Track1_Assignment2
 =================================
-
-Student: [Emanuele Bua Odetti](https://github.com/LemmaMoto) (S6109127), Professor: [Carmine Tommaso Recchiuto](https://github.com/CarmineD8)
-------------------------------------------------------------------------------------------------------------------------------------------
-
+Student name: Mohammad Ali Pouryaghoub Shahkhali
+Student number: 6063201
 This is the second assignment for the Research Track 1 course. The assignment requires the creation of a new package containing three nodes to control robot movement in a specific environment and to gather relevant data. The nodes are as follows:
 
 - A node that implements an action client, allowing the user to set a target(x,y) or to cancel it.
