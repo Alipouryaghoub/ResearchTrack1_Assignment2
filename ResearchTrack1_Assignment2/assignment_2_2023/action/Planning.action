@@ -1,5 +1,0 @@
-geometry_msgs/PoseStamped target_pose
----
----
-geometry_msgs/Pose actual_pose
-string stat
