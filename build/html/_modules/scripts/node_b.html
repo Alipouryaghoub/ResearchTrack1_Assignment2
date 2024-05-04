@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>scripts.node_b &mdash; RT2_Assignment2 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=359c27e9"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            RT2_Assignment2
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RT2_Assignment2</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">scripts.node_b</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for scripts.node_b</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Node B</span>
+
+
+<span class="sd">This module provides functionality for a custom last target service in ROS. It initializes a ROS node called &#39;custom_last_target_service&#39; and implements a service that retrieves the last desired x and y positions from ROS parameters.</span>
+
+<span class="sd">.. moduleauthor:: Pouryaghoub Mohammad Ali &lt;6063201@studenti.unige.it&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">from</span> <span class="nn">assignment_2_2023.srv</span> <span class="kn">import</span> <span class="n">Input</span><span class="p">,</span> <span class="n">InputResponse</span>
+
+<div class="viewcode-block" id="CustomLastTargetService"><a class="viewcode-back" href="../../index.html#scripts.node_b.CustomLastTargetService">[docs]</a><span class="k">class</span> <span class="nc">CustomLastTargetService</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class responsible for handling the custom last target service.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the CustomLastTargetService object.</span>
+
+<span class="sd">        Initializes class variables for the last desired x and y positions.</span>
+<span class="sd">        Sets up the ROS node with the name &#39;custom_last_target_service&#39;.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Initialize class variables for the last desired x and y positions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_des_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_des_y</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Initialize the node with the name &#39;custom_last_target_service&#39;</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;custom_last_target_service&#39;</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">&quot;Custom Last Target Service node initialized&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="CustomLastTargetService.result_callback"><a class="viewcode-back" href="../../index.html#scripts.node_b.CustomLastTargetService.result_callback">[docs]</a>    <span class="k">def</span> <span class="nf">result_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Callback function for processing the result of the service request.</span>
+
+<span class="sd">        This method is called when the service request is received. It retrieves the last desired x and y positions</span>
+<span class="sd">        from ROS parameters and creates a response message with these values.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            _: Placeholder for the result of the service request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            assignment_2_2023.srv.InputResponse: A response message containing the last desired x and y positions.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a response message</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">InputResponse</span><span class="p">()</span>
+        <span class="c1"># Set the x and y inputs in the response to the last desired positions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_des_x</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/des_pos_x&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_des_y</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;/des_pos_y&#39;</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">input_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_des_x</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">input_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_des_y</span>
+
+        <span class="c1"># Return the response</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="CustomLastTargetService.run_service_node"><a class="viewcode-back" href="../../index.html#scripts.node_b.CustomLastTargetService.run_service_node">[docs]</a>    <span class="k">def</span> <span class="nf">run_service_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run the CustomLastTargetService node and advertise the &#39;input&#39; service.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Advertise the service with the name &#39;input&#39; and using the custom service type Input</span>
+        <span class="n">service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">Input</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">result_callback</span><span class="p">)</span>
+
+        <span class="c1"># Keep the node running to handle service requests</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Run the Last Target Service node</span>
+    <span class="n">last_target_service</span> <span class="o">=</span> <span class="n">CustomLastTargetService</span><span class="p">()</span>
+    <span class="n">last_target_service</span><span class="o">.</span><span class="n">run_service_node</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Pouryaghoub Mohammad Ali.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
