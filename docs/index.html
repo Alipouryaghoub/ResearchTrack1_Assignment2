@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to RT2_Assignment1 documentation! &mdash; RT2_Assignment1 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=359c27e9"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            RT2_Assignment1
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to RT2_Assignment1 documentation!</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li><a class="reference internal" href="#rt2-assignment1-documentation">RT2_Assignment1 documentation!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.node_a">Node_a Module</a><ul>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler</span></code></a><ul>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler.cancel_current_goal"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler.cancel_current_goal()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler.handle_goal_commands"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler.handle_goal_commands()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler.initialize_ros_components"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler.initialize_ros_components()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler.publish_robot_position_velocity"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler.publish_robot_position_velocity()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_a.RobotGoalHandler.set_new_goal"><code class="docutils literal notranslate"><span class="pre">RobotGoalHandler.set_new_goal()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#scripts.node_a.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.node_b">Node_b Module</a><ul>
+<li><a class="reference internal" href="#scripts.node_b.CustomLastTargetService"><code class="docutils literal notranslate"><span class="pre">CustomLastTargetService</span></code></a><ul>
+<li><a class="reference internal" href="#scripts.node_b.CustomLastTargetService.result_callback"><code class="docutils literal notranslate"><span class="pre">CustomLastTargetService.result_callback()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_b.CustomLastTargetService.run_service_node"><code class="docutils literal notranslate"><span class="pre">CustomLastTargetService.run_service_node()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-scripts.node_c">Node_c Module</a><ul>
+<li><a class="reference internal" href="#scripts.node_c.CustomInfoServiceHandler"><code class="docutils literal notranslate"><span class="pre">CustomInfoServiceHandler</span></code></a><ul>
+<li><a class="reference internal" href="#scripts.node_c.CustomInfoServiceHandler.calculate_distance_and_average_velocity"><code class="docutils literal notranslate"><span class="pre">CustomInfoServiceHandler.calculate_distance_and_average_velocity()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_c.CustomInfoServiceHandler.handle_info_service_request"><code class="docutils literal notranslate"><span class="pre">CustomInfoServiceHandler.handle_info_service_request()</span></code></a></li>
+<li><a class="reference internal" href="#scripts.node_c.CustomInfoServiceHandler.run_info_service_node"><code class="docutils literal notranslate"><span class="pre">CustomInfoServiceHandler.run_info_service_node()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">RT2_Assignment1</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to RT2_Assignment1 documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-rt2-assignment1-documentation">
+<h1>Welcome to RT2_Assignment1 documentation!<a class="headerlink" href="#welcome-to-rt2-assignment1-documentation" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<section id="rt2-assignment1-documentation">
+<h2>RT2_Assignment1 documentation!<a class="headerlink" href="#rt2-assignment1-documentation" title="Permalink to this heading"></a></h2>
+<p>This is the documentation of the RT2_Assignment1!</p>
+</section>
+</section>
+<section id="module-scripts.node_a">
+<span id="node-a-module"></span><h1>Node_a Module<a class="headerlink" href="#module-scripts.node_a" title="Permalink to this heading"></a></h1>
+<p>Node A</p>
+<p>This module provides functionality for setting and canceling goals for a robot, as well as publishing its position and velocity information.</p>
+<p>This module initializes ROS components, subscribes to the robot’s odometry data, and allows users to set or cancel goals for the robot to reach. It also publishes the robot’s position and velocity information.</p>
+<p><em>Module author: Pouryaghoub Mohammad Ali &lt;<a class="reference external" href="mailto:6063201&#37;&#52;&#48;studenti&#46;unige&#46;it">6063201<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a>&gt;</em></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.node_a.</span></span><span class="sig-name descname"><span class="pre">RobotGoalHandler</span></span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Class responsible for handling robot goals and publishing position and velocity information.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler.cancel_current_goal">
+<span class="sig-name descname"><span class="pre">cancel_current_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler.cancel_current_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler.cancel_current_goal" title="Permalink to this definition"></a></dt>
+<dd><p>Cancel the current goal.</p>
+<p>This method cancels the currently active goal, if any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler.handle_goal_commands">
+<span class="sig-name descname"><span class="pre">handle_goal_commands</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler.handle_goal_commands"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler.handle_goal_commands" title="Permalink to this definition"></a></dt>
+<dd><p>Handle user input for setting or canceling goals.</p>
+<p>This method continuously prompts the user for input and responds accordingly by setting new goals or canceling current goals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler.initialize_ros_components">
+<span class="sig-name descname"><span class="pre">initialize_ros_components</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler.initialize_ros_components"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler.initialize_ros_components" title="Permalink to this definition"></a></dt>
+<dd><p>Initialize ROS components.</p>
+<p>This method initializes the ROS node and the necessary publishers and action clients for communication with the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler.publish_robot_position_velocity">
+<span class="sig-name descname"><span class="pre">publish_robot_position_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler.publish_robot_position_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler.publish_robot_position_velocity" title="Permalink to this definition"></a></dt>
+<dd><p>Publish the robot’s position and velocity information.</p>
+<p>This method receives odometry data from the robot and publishes its current position and velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>Odometry</em>) – The odometry message containing position and velocity data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_a.RobotGoalHandler.set_new_goal">
+<span class="sig-name descname"><span class="pre">set_new_goal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#RobotGoalHandler.set_new_goal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.RobotGoalHandler.set_new_goal" title="Permalink to this definition"></a></dt>
+<dd><p>Set a new goal for the robot.</p>
+<p>This method prompts the user to input new goal coordinates and sends the goal to the robot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="scripts.node_a.main">
+<span class="sig-prename descclassname"><span class="pre">scripts.node_a.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_a.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_a.main" title="Permalink to this definition"></a></dt>
+<dd><p>Main function to initialize and run the RobotGoalHandler.</p>
+<p>This function creates an instance of RobotGoalHandler, initializes ROS components, and starts handling goal commands.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-scripts.node_b">
+<span id="node-b-module"></span><h1>Node_b Module<a class="headerlink" href="#module-scripts.node_b" title="Permalink to this heading"></a></h1>
+<p>Node B</p>
+<p>This module provides functionality for a custom last target service in ROS. It initializes a ROS node called ‘custom_last_target_service’ and implements a service that retrieves the last desired x and y positions from ROS parameters.</p>
+<p><em>Module author: Pouryaghoub Mohammad Ali &lt;<a class="reference external" href="mailto:6063201&#37;&#52;&#48;studenti&#46;unige&#46;it">6063201<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a>&gt;</em></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.node_b.CustomLastTargetService">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.node_b.</span></span><span class="sig-name descname"><span class="pre">CustomLastTargetService</span></span><a class="reference internal" href="_modules/scripts/node_b.html#CustomLastTargetService"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_b.CustomLastTargetService" title="Permalink to this definition"></a></dt>
+<dd><p>Class responsible for handling the custom last target service.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_b.CustomLastTargetService.result_callback">
+<span class="sig-name descname"><span class="pre">result_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_b.html#CustomLastTargetService.result_callback"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_b.CustomLastTargetService.result_callback" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function for processing the result of the service request.</p>
+<p>This method is called when the service request is received. It retrieves the last desired x and y positions
+from ROS parameters and creates a response message with these values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_</strong> – Placeholder for the result of the service request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response message containing the last desired x and y positions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>assignment_2_2023.srv.InputResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_b.CustomLastTargetService.run_service_node">
+<span class="sig-name descname"><span class="pre">run_service_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_b.html#CustomLastTargetService.run_service_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_b.CustomLastTargetService.run_service_node" title="Permalink to this definition"></a></dt>
+<dd><p>Run the CustomLastTargetService node and advertise the ‘input’ service.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-scripts.node_c">
+<span id="node-c-module"></span><h1>Node_c Module<a class="headerlink" href="#module-scripts.node_c" title="Permalink to this heading"></a></h1>
+<p>Node C</p>
+<p>This module provides functionality for a custom info service in ROS. It initializes a ROS node called ‘custom_info_service’ and implements a service that calculates the distance between desired and actual positions, as well as the average velocity based on received data from the ‘/pos_vel’ topic.</p>
+<p><em>Module author: Pouryaghoub Mohammad Ali &lt;<a class="reference external" href="mailto:6063201&#37;&#52;&#48;studenti&#46;unige&#46;it">6063201<span>&#64;</span>studenti<span>&#46;</span>unige<span>&#46;</span>it</a>&gt;</em></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="scripts.node_c.CustomInfoServiceHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">scripts.node_c.</span></span><span class="sig-name descname"><span class="pre">CustomInfoServiceHandler</span></span><a class="reference internal" href="_modules/scripts/node_c.html#CustomInfoServiceHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_c.CustomInfoServiceHandler" title="Permalink to this definition"></a></dt>
+<dd><p>Class responsible for handling the custom info service.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_c.CustomInfoServiceHandler.calculate_distance_and_average_velocity">
+<span class="sig-name descname"><span class="pre">calculate_distance_and_average_velocity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vel_message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_c.html#CustomInfoServiceHandler.calculate_distance_and_average_velocity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_c.CustomInfoServiceHandler.calculate_distance_and_average_velocity" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate the distance between desired and actual positions, and average velocity.</p>
+<p>Extracts desired x and y positions from the ROS parameter server.
+Retrieves the window size for velocity calculation from the ROS parameter server.
+Computes the distance between desired and actual positions.
+Computes the average velocity based on received velocity data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>vel_message</strong> (<em>assignment_2_2023.msg.Vel</em>) – The Vel message containing position and velocity data.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_c.CustomInfoServiceHandler.handle_info_service_request">
+<span class="sig-name descname"><span class="pre">handle_info_service_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_c.html#CustomInfoServiceHandler.handle_info_service_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_c.CustomInfoServiceHandler.handle_info_service_request" title="Permalink to this definition"></a></dt>
+<dd><p>Handle requests for the info_service.</p>
+<p>Constructs a response containing the distance and average velocity calculated previously, and returns it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_</strong> – Placeholder for the service request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response containing the distance and average velocity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>assignment_2_2023.srv.Ave_pos_velResponse</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="scripts.node_c.CustomInfoServiceHandler.run_info_service_node">
+<span class="sig-name descname"><span class="pre">run_info_service_node</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/scripts/node_c.html#CustomInfoServiceHandler.run_info_service_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#scripts.node_c.CustomInfoServiceHandler.run_info_service_node" title="Permalink to this definition"></a></dt>
+<dd><p>Run the Custom Info Service node.</p>
+<p>Starts the Custom Info Service node, allowing it to handle service requests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Pouryaghoub Mohammad Ali.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
